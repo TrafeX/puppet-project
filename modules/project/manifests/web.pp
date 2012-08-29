@@ -11,6 +11,17 @@ class project::web {
         mode   => 775,
     }
 
+    file { "/srv/http/${params::project}/hosts/${params::host}":
+        ensure => link,
+        target => '/vagrant',
+    }
+
+    apache::vhost { $params::host:
+        docroot => "/srv/http/${params::project}/hosts/${params::host}/public",
+        docroot_create => true,
+        port => $params::apache_port,
+    }
+
     package { "augeas-tools":   ensure => installed }
     package { "libaugeas-dev":  ensure => installed }
     package { "libaugeas-ruby": ensure => installed }

@@ -7,7 +7,6 @@ node default {
     include params
     include project
 
-
     # Project specific config
     file { "/srv/http/${params::project}/hosts/${params::host}":
       ensure => link,

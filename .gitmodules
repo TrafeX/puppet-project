@@ -1,0 +1,6 @@
+[submodule "modules/example42"]
+	path = modules/example42
+	url = git://github.com/example42/puppet-modules
+[submodule "modules/zendserver"]
+	path = modules/zendserver
+	url = git://github.com/TrafeX/puppet-zendserver.git
